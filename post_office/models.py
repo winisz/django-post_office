@@ -250,6 +250,8 @@ class EmailTemplate(models.Model):
 
 def get_upload_path(instance, filename):
     """Overriding to store the original filename"""
+	if settings.DEFAULT_FILE_STORAGE == 'db_file_storage.storage.DatabaseFileStorage':
+		return 'post_office.Attachment/bytes/filename/mimetype'
     if not instance.name:
         instance.name = filename  # set original filename
 
