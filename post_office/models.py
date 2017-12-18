@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from collections import namedtuple
 from uuid import uuid4
 
+from django.conf import settings
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.db import models
 from django.template import Context, Template
