@@ -268,7 +268,7 @@ class Attachment(models.Model):
     DB_FILE_STORAGE_UPLOAD_PATH = 'post_office.Attachment/bytes/name/mimetype'
 
     file = models.FileField(_('File'),upload_to=DB_FILE_STORAGE_UPLOAD_PATH if settings.DEFAULT_FILE_STORAGE else get_upload_path)
-    bytes = models.TextField()
+    bytes = models.TextField(null=True, blank=True)
     name = models.CharField(_('Name'),max_length=255, help_text=_("The original filename"))
     emails = models.ManyToManyField(Email, related_name='attachments',
                                     verbose_name=_('Email addresses'))
